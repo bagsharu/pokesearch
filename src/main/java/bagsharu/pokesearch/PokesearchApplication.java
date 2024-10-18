@@ -1,5 +1,6 @@
 package bagsharu.pokesearch;
 
+import bagsharu.pokesearch.main.Principal;
 import bagsharu.pokesearch.model.PokemonInfo;
 import bagsharu.pokesearch.service.ApiRequest;
 import bagsharu.pokesearch.service.ConvertData;
@@ -16,12 +17,9 @@ public class PokesearchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var apiRequest = new ApiRequest();
-		var json = apiRequest.requestData("https://pokeapi.co/api/v2/pokemon/toxapex");
-		var convert = new ConvertData();
 
-		PokemonInfo pokeTest = convert.convertData(json, PokemonInfo.class);
+		Principal principal = new Principal();
 
-		System.out.println(pokeTest);
+		principal.SearchPokemon();
 	}
 }
