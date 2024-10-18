@@ -1,5 +1,8 @@
 package bagsharu.pokesearch;
 
+import bagsharu.pokesearch.model.PokemonInfo;
+import bagsharu.pokesearch.service.ApiRequest;
+import bagsharu.pokesearch.service.ConvertData;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +16,12 @@ public class PokesearchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Hello World!");
+		var apiRequest = new ApiRequest();
+		var json = apiRequest.requestData("https://pokeapi.co/api/v2/pokemon/toxapex");
+		var convert = new ConvertData();
+
+		PokemonInfo pokeTest = convert.convertData(json, PokemonInfo.class);
+
+		System.out.println(pokeTest);
 	}
 }
