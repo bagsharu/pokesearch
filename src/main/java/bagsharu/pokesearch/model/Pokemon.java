@@ -39,4 +39,11 @@ public class Pokemon {
     public Integer getPokemonWeight() {
         return pokemonWeight;
     }
+
+    @Override
+    public String toString() {
+        return "Here's the basic info of " + pokemonName.substring(0,1).toUpperCase() + pokemonName.substring(1) +
+                "\nType: " + pokemonTypeMain + " " + pokemonTypeSecond +
+                "\nWeight: " + pokemonWeight;
+    }
 }
