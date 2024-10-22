@@ -28,6 +28,7 @@ public class Principal {
 
         // Display on screen the data recieved
         System.out.println(pokeTest);
+        PrintPokemon.PrintPoke(pokeTest);
 
 
     }
