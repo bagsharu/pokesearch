@@ -1,5 +1,6 @@
 package bagsharu.pokesearch.main;
 
+import bagsharu.pokesearch.model.Pokemon;
 import bagsharu.pokesearch.model.PokemonInfo;
 import bagsharu.pokesearch.service.ApiRequest;
 import bagsharu.pokesearch.service.ConvertData;
@@ -28,7 +29,13 @@ public class Principal {
 
         // Display on screen the data recieved
         System.out.println(pokeTest);
+
+        // Implementation of static method
         PrintPokemon.PrintPoke(pokeTest);
+
+        // toString of Pokemon.class
+        Pokemon pokemon = new Pokemon(pokeTest);
+        System.out.println(pokemon);
 
 
     }
