@@ -7,16 +7,13 @@ import jakarta.persistence.*;
 public class Pokemon {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idPokemon;
 
     @Column(unique = true)
     private String pokemonName;
 
-    @Enumerated(EnumType.STRING)
     private String pokemonTypeMain;
-
-    @Enumerated(EnumType.STRING)
     private String pokemonTypeSecond;
     private Double pokemonWeight;
 
