@@ -1,9 +1,22 @@
 package bagsharu.pokesearch.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name= "pokemons")
 public class Pokemon {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPokemon;
+
+    @Column(unique = true)
     private String pokemonName;
+
+    @Enumerated(EnumType.STRING)
     private String pokemonTypeMain;
+
+    @Enumerated(EnumType.STRING)
     private String pokemonTypeSecond;
     private Double pokemonWeight;
 
@@ -36,6 +49,16 @@ public class Pokemon {
 
     public Double getPokemonWeight() {
         return pokemonWeight;
+    }
+
+    // Getter and Setter for ID
+
+    public Long getIdPokemon() {
+        return idPokemon;
+    }
+
+    public void setIdPokemon(Long idPokemon) {
+        this.idPokemon = idPokemon;
     }
 
     @Override
