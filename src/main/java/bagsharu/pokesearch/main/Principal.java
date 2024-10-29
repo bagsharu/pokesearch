@@ -3,7 +3,8 @@ package bagsharu.pokesearch.main;
 import bagsharu.pokesearch.model.Pokemon;
 import bagsharu.pokesearch.model.PokemonInfo;
 import bagsharu.pokesearch.service.ApiRequest;
-import bagsharu.pokesearch.service.ConvertData;
+import com.sun.tools.javac.Main;
+
 
 import java.util.Scanner;
 
@@ -12,20 +13,14 @@ public class Principal {
 
     private Scanner scanner = new Scanner(System.in);
     private final String URL_BASE = "https://pokeapi.co/api/v2/pokemon/";
-    private ApiRequest apiRequest = new ApiRequest();
 
     // Method to display the search menu
     public void SearchPokemon () {
 /*
-        // Ask the user what pokemon they would like to get info.
-        System.out.println("Type what pokemon you'd like to search: ");
-        var searchPoke = scanner.nextLine();
-        var searchURL = URL_BASE + searchPoke;
+
 
         // Requests from pokeapi
-        var json = apiRequest.requestData(searchURL);
-        var convert = new ConvertData();
-        PokemonInfo pokeTest = convert.convertData(json, PokemonInfo.class);
+
 
         // Display on screen the data recieved
         System.out.println(pokeTest);
@@ -37,7 +32,22 @@ public class Principal {
         Pokemon pokemon = new Pokemon(pokeTest);
         System.out.println(pokemon);
 */
-        MainMenu.printMenu();
+
+
+        MainMenu menuControl = new MainMenu();
+
+        menuControl.printMenu();
+
+        // Ask the user what pokemon they would like to get info.
+        System.out.println("Type what pokemon you'd like to search: ");
+        var searchPoke = scanner.nextLine();
+        var searchURL = URL_BASE + searchPoke;
+
+        PokemonInfo pokeTest = menuControl.pokemonSearch(searchURL);
+        Pokemon pokemon = new Pokemon(pokeTest);
+
+        System.out.println(pokemon);
+
 
 
     }
