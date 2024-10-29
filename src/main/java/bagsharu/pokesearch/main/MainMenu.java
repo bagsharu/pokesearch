@@ -1,8 +1,15 @@
 package bagsharu.pokesearch.main;
 
+
+import bagsharu.pokesearch.model.PokemonInfo;
+import bagsharu.pokesearch.service.ApiRequest;
+import bagsharu.pokesearch.service.ConvertData;
+
 public class MainMenu {
 
-    private static String entryText = "--------------------------------\n"+
+    private ApiRequest apiRequest = new ApiRequest();
+
+    private final String ENTRY_TEXT = "--------------------------------\n"+
                                 "Welcome to PokéSearch:\n"+
                                 "What operation would you like to do?" +
                                 "\n1- Search and Pokemon's Info" +
@@ -10,9 +17,19 @@ public class MainMenu {
                                 "\n0- Leave" +
                                "\n--------------------------------";
 
-    public static void printMenu() {
+    public void printMenu() {
 
-        System.out.println(entryText);
+        System.out.println(ENTRY_TEXT);
+    }
+
+    public PokemonInfo pokemonSearch(String nameSearch) {
+
+        // Recieve an URL as parameter, then requests from API
+        var json = apiRequest.requestData(nameSearch);
+
+        // Returns a Record with the Pokemon's info
+        var convert = new ConvertData();
+        return convert.convertData(json, PokemonInfo.class);
     }
 
 
