@@ -16,7 +16,7 @@ public class Principal {
 
     // Method to display the search menu
     public void SearchPokemon () {
-
+/*
         // Ask the user what pokemon they would like to get info.
         System.out.println("Type what pokemon you'd like to search: ");
         var searchPoke = scanner.nextLine();
@@ -36,6 +36,8 @@ public class Principal {
         // toString of Pokemon.class
         Pokemon pokemon = new Pokemon(pokeTest);
         System.out.println(pokemon);
+*/
+        MainMenu.printMenu();
 
 
     }
