@@ -17,6 +17,8 @@ public class Pokemon {
     private String pokemonTypeSecond;
     private Double pokemonWeight;
 
+    public Pokemon () {}
+
     public Pokemon(PokemonInfo pokemonInfo) {
 
         this.pokemonName = pokemonInfo.pokeName();
