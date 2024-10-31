@@ -59,7 +59,10 @@ public class Principal {
         repository.save(pokemon);
 
         System.out.println(pokemon);
-        pokemonData.forEach(System.out::println);
+        List<Pokemon> pokemonList = repository.findAll();
+
+        pokemonList.forEach(System.out::println);
+//        pokemonData.forEach(System.out::println);
 
 
 
