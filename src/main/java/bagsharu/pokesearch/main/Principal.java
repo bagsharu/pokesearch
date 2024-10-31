@@ -2,10 +2,13 @@ package bagsharu.pokesearch.main;
 
 import bagsharu.pokesearch.model.Pokemon;
 import bagsharu.pokesearch.model.PokemonInfo;
+import bagsharu.pokesearch.repository.PokemonRepository;
 import bagsharu.pokesearch.service.ApiRequest;
 import com.sun.tools.javac.Main;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -13,6 +16,12 @@ public class Principal {
 
     private Scanner scanner = new Scanner(System.in);
     private final String URL_BASE = "https://pokeapi.co/api/v2/pokemon/";
+
+    private List<Pokemon> pokemonData = new ArrayList<>();
+    private PokemonRepository repository;
+    public Principal(PokemonRepository repository) {
+        this.repository = repository;
+    }
 
     // Method to display the search menu
     public void SearchPokemon () {
@@ -46,7 +55,12 @@ public class Principal {
         PokemonInfo pokeTest = menuControl.pokemonSearch(searchURL);
         Pokemon pokemon = new Pokemon(pokeTest);
 
+        menuControl.pokemonAdd(pokemonData,pokemon);
+        repository.save(pokemon);
+
         System.out.println(pokemon);
+        pokemonData.forEach(System.out::println);
+
 
 
 
