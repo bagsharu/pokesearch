@@ -1,9 +1,12 @@
 package bagsharu.pokesearch.main;
 
 
+import bagsharu.pokesearch.model.Pokemon;
 import bagsharu.pokesearch.model.PokemonInfo;
 import bagsharu.pokesearch.service.ApiRequest;
 import bagsharu.pokesearch.service.ConvertData;
+
+import java.util.List;
 
 public class MainMenu {
 
@@ -32,5 +35,10 @@ public class MainMenu {
         return convert.convertData(json, PokemonInfo.class);
     }
 
+
+    public void pokemonAdd(List<Pokemon> pokeList, Pokemon poke) {
+
+        pokeList.add(poke);
+    }
 
 }
