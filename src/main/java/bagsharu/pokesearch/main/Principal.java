@@ -51,13 +51,16 @@ public class Principal {
                     // Adds a pokemon to the database
                     menuControl.pokemonAdd(pokemonData,pokemon);
                     repository.save(pokemon);
+                    break;
                 case 2:
                     // Search the databse for all persisted pokemon
                     List<Pokemon> pokemonList = repository.findAll();
 
                     // Prints all pokemon
                     pokemonList.forEach(System.out::println);
+                    break;
                 case 0:
+                    System.out.println("Ending operations.");
                     break;
                 default:
                     System.out.println("Invalid operation.");
