@@ -41,28 +41,58 @@ public class Principal {
         Pokemon pokemon = new Pokemon(pokeTest);
         System.out.println(pokemon);
 */
-
-
+//
+//
         MainMenu menuControl = new MainMenu();
+//
+//        menuControl.printMenu();
+//
 
-        menuControl.printMenu();
+//
 
-        // Ask the user what pokemon they would like to get info.
-        System.out.println("Type what pokemon you'd like to search: ");
-        var searchPoke = scanner.nextLine();
-        var searchURL = URL_BASE + searchPoke;
+//
 
-        PokemonInfo pokeTest = menuControl.pokemonSearch(searchURL);
-        Pokemon pokemon = new Pokemon(pokeTest);
+//
+//        System.out.println(pokemon);
 
-        menuControl.pokemonAdd(pokemonData,pokemon);
-        repository.save(pokemon);
+//
 
-        System.out.println(pokemon);
-        List<Pokemon> pokemonList = repository.findAll();
+////        pokemonData.forEach(System.out::println);
 
-        pokemonList.forEach(System.out::println);
-//        pokemonData.forEach(System.out::println);
+        int control = -1;
+
+        while (control !=  0) {
+
+            menuControl.printMenu();
+            control = scanner.nextInt();
+
+            switch (control) {
+
+                case 1:
+                    // Ask the user what pokemon they would like to get info.
+                    System.out.println("Type what pokemon you'd like to search: ");
+                    var searchPoke = scanner.nextLine();
+                    var searchURL = URL_BASE + searchPoke;
+
+                    // Serializes pokemoninfo and creates a Pokemon object.
+                    PokemonInfo pokeTest = menuControl.pokemonSearch(searchURL);
+                    Pokemon pokemon = new Pokemon(pokeTest);
+
+                    // Adds a pokemon to the database
+                    menuControl.pokemonAdd(pokemonData,pokemon);
+                    repository.save(pokemon);
+                case 2:
+                    // Search the databse for all persisted pokemon
+                    List<Pokemon> pokemonList = repository.findAll();
+
+                    // Prints all pokemon
+                    pokemonList.forEach(System.out::println);
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid operation.");
+            }
+        }
 
 
 
