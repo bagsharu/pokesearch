@@ -25,39 +25,8 @@ public class Principal {
 
     // Method to display the search menu
     public void SearchPokemon () {
-/*
 
-
-        // Requests from pokeapi
-
-
-        // Display on screen the data recieved
-        System.out.println(pokeTest);
-
-        // Implementation of static method
-        PrintPokemon.PrintPoke(pokeTest);
-
-        // toString of Pokemon.class
-        Pokemon pokemon = new Pokemon(pokeTest);
-        System.out.println(pokemon);
-*/
-//
-//
         MainMenu menuControl = new MainMenu();
-//
-//        menuControl.printMenu();
-//
-
-//
-
-//
-
-//
-//        System.out.println(pokemon);
-
-//
-
-////        pokemonData.forEach(System.out::println);
 
         int control = -1;
 
@@ -65,6 +34,7 @@ public class Principal {
 
             menuControl.printMenu();
             control = scanner.nextInt();
+            scanner.nextLine();
 
             switch (control) {
 
