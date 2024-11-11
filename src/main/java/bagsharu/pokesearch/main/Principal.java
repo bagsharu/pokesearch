@@ -26,7 +26,7 @@ public class Principal {
     // Method to display the search menu
     public void SearchPokemon () {
 
-        MainMenu menuControl = new MainMenu();
+        MainMenu menuControl = new MainMenu(repository);
 
         int control = -1;
 
@@ -59,6 +59,11 @@ public class Principal {
                     // Prints all pokemon
                     pokemonList.forEach(System.out::println);
                     break;
+                case 3:
+                    System.out.println("Type what pokemon you would like to search:");
+                    var leitura = scanner.nextLine();
+                    menuControl.SearchDatabase(leitura);
+                    break;
                 case 0:
                     System.out.println("Ending operations.");
                     break;
@@ -71,4 +76,6 @@ public class Principal {
 
 
     }
+
+
 }
