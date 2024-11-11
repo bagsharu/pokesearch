@@ -61,9 +61,13 @@ public class Principal {
                     break;
                 case 3:
                     System.out.println("Type what pokemon you would like to search:");
-                    var leitura = scanner.nextLine();
-                    menuControl.SearchDatabase(leitura);
+                    var pokeSearch = scanner.nextLine();
+                    menuControl.SearchDatabase(pokeSearch);
                     break;
+                case 4:
+                    System.out.println("What pokemon type you would like to search?");
+                    var typeSearch = scanner.nextLine();
+                    menuControl.SearchType(typeSearch);
                 case 0:
                     System.out.println("Ending operations.");
                     break;
