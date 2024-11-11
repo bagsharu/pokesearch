@@ -3,14 +3,21 @@ package bagsharu.pokesearch.main;
 
 import bagsharu.pokesearch.model.Pokemon;
 import bagsharu.pokesearch.model.PokemonInfo;
+import bagsharu.pokesearch.repository.PokemonRepository;
 import bagsharu.pokesearch.service.ApiRequest;
 import bagsharu.pokesearch.service.ConvertData;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MainMenu {
 
     private ApiRequest apiRequest = new ApiRequest();
+
+    private PokemonRepository repository;
+    public MainMenu(PokemonRepository repository) {
+        this.repository = repository;
+    }
 
     public void printMenu() {
 
@@ -42,6 +49,17 @@ public class MainMenu {
     public void pokemonAdd(List<Pokemon> pokeList, Pokemon poke) {
 
         pokeList.add(poke);
+    }
+
+    public void SearchDatabase(String pokeName) {
+
+        Optional<Pokemon> pokemonSearched = repository.findByPokemonNameContainingIgnoreCase(pokeName);
+
+        if (pokemonSearched.isPresent()) {
+            System.out.println(pokemonSearched.get());
+        } else {
+            System.out.println("Pokemon not found in database.");
+        }
     }
 
 }
