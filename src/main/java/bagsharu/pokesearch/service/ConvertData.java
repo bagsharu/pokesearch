@@ -12,6 +12,7 @@ public class ConvertData implements IConvertData{
         try {
             return mapper.readValue(json, classe);
         } catch (JsonProcessingException e) {
+            System.out.println("Pokemon not found");
             throw new RuntimeException(e);
         }
     }
