@@ -12,16 +12,19 @@ public class MainMenu {
 
     private ApiRequest apiRequest = new ApiRequest();
 
-    private final String ENTRY_TEXT = "--------------------------------\n"+
-                                "Welcome to PokéSearch:\n"+
-                                "What operation would you like to do?" +
-                                "\n1- Search and Pokemon's Info" +
-                                "\n2- List all searched Pokemon" +
-                                "\n0- Leave" +
-                               "\n--------------------------------";
-
     public void printMenu() {
 
+        String ENTRY_TEXT = """
+                
+                --------------------------------
+                Welcome to PokéSearch:
+                What operation would you like to do?
+                1- Search and Pokemon's Info
+                2- List all searched Pokemon
+                3- Search Pokemon in database
+                0- Leave
+                --------------------------------
+                """;
         System.out.println(ENTRY_TEXT);
     }
 
