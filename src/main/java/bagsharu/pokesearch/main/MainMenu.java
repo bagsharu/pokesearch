@@ -29,6 +29,7 @@ public class MainMenu {
                 1- Search and Pokemon's Info
                 2- List all searched Pokemon
                 3- Search Pokemon in database
+                4- Search by Type
                 0- Leave
                 --------------------------------
                 """;
@@ -60,6 +61,16 @@ public class MainMenu {
         } else {
             System.out.println("Pokemon not found in database.");
         }
+    }
+
+    public void SearchType (String typeSearch) {
+        List<Pokemon> pokeByType = repository.findByPokemonTypeMainContainingIgnoreCase(typeSearch);
+
+        if (pokeByType.isEmpty()){
+            System.out.println("No pokemon of " + typeSearch.toUpperCase() + " type found.");
+        } else
+            System.out.println("Here are the " + typeSearch.toUpperCase() + " type Pokemon:");
+            pokeByType.forEach(System.out::println);
     }
 
 }
