@@ -64,7 +64,7 @@ public class MainMenu {
     }
 
     public void SearchType (String typeSearch) {
-        List<Pokemon> pokeByType = repository.findByPokemonTypeMainContainingIgnoreCase(typeSearch);
+        List<Pokemon> pokeByType = repository.searchByType(typeSearch);
 
         if (pokeByType.isEmpty()){
             System.out.println("No pokemon of " + typeSearch.toUpperCase() + " type found.");
