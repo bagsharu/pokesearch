@@ -13,7 +13,7 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Long> {
 
     List<Pokemon> findByPokemonTypeMainContainingIgnoreCase(String typeSearch);
 
-    @Query("SELECT p FROM Pokemon p WHERE p.pokemonTypeMain LIKE %:param% OR p.pokemonTypeSecond LIKE %:param%")
-    List<Pokemon> searchByType(@Param("param") String param);
+    @Query("SELECT p FROM Pokemon p WHERE p.pokemonTypeMain LIKE %:typeSearch% OR p.pokemonTypeSecond LIKE %:typeSearch%")
+    List<Pokemon> searchByType(@Param("typeSearch") String param);
 
 }
